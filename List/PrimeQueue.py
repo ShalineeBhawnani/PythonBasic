@@ -11,7 +11,7 @@ def is_primeQueue(Range):
     print(lst)
     is_anagramQueue(lst)
 
-
+#anagram logic
 def is_anagramQueue(lst):
     lst1=[]
     lst2=[]
