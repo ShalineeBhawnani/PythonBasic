@@ -1,3 +1,8 @@
+# ******************************************************************************************************************
+# @purpose :Demonstrate QuadraticEquestionTest.
+# @file  :QuadraticTest.py
+# @author :ShalineeBhawnani
+# *******************************************************************************************************************
 import unittest
 from Quadratic import quadratic
 
