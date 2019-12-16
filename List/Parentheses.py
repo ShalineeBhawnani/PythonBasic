@@ -1,4 +1,8 @@
-str = input("enter the string")
+# ******************************************************************************************************************
+# @purpose :Demonstrate Parentheses.
+# @file  :Parentheses.py
+# @author :ShalineeBhawnani
+# *******************************************************************************************************************str = input("enter the string")
 
 def check(str):
     stack = []

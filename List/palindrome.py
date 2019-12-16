@@ -1,4 +1,8 @@
-def is_palindrome(str):
+ # ******************************************************************************************************************
+# @purpose :Demonstrate Palimdrome.
+# @file  :Palimdrome.py
+# @author :ShalineeBhawnani
+# *******************************************************************************************************************	 def is_palindrome(str):
     palindrome=Palindrome()
     for i in str:
         palindrome.insertfirst(i)
