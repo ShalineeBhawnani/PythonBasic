@@ -4,19 +4,31 @@
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
 from Utility.util import PrimeQueue
-def is_primeQueue(Range):
-    lst=[]
-    for i in range(2,Range+1):
+
+# creating method to take maximum numbers
+def is_primeQueue(maxnumber):
+
+    # creating empty list
+    list1=[]
+    
+    # loop for getting prime numbers
+    for i in range(2,maxnumber+1):
         count=0
         for j in range(1,i+1):
             if (i%j)==0:
                 count+=1
         if count==2:
-            lst.append(i)
-    print(lst)
+
+            #appending prime numbers
+            list1.append(i)
+    
+    # printing list
+    print(list1)
+
+    #calling anagram method
     is_anagramQueue(lst)
 
-#anagram logic
+#defining method for anagram finding
 def is_anagramQueue(lst):
     lst1=[]
     lst2=[]
@@ -29,9 +41,7 @@ def is_anagramQueue(lst):
             print("lst2=",lst2)
         else:
             for j in lst1:
-                #print(type(i),"->",type(j),end=" ")
                 if len(i)==len(j):
-                    #print(i)
                     x=sorted(i)
                     y=sorted(j)
                     count=0
@@ -47,13 +57,10 @@ def is_anagramQueue(lst):
         primequeue.pqueue(i)
     primequeue.Printqueue()
 
-
-
-
     def Printqueue(self):
         if self.first==None:
             print("queue is Empty")
         temp = self.first
         while temp != None:
-            print(temp.data, end="->")
+            print(temp.data, end="  ")
             temp = temp.next
