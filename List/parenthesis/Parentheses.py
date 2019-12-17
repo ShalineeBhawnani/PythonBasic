@@ -4,8 +4,13 @@
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************str = input("enter the string")
 
+#importing util from utility
 from Utility.util import Node
+
+#creating method to check parantheses
 def check(str):
+
+    #initializing empty stack(list)
     stack = []
     for i in str:
         if i =='(' or i=='{' or i== '[':
@@ -17,4 +22,5 @@ def check(str):
     else:
         print(False)
 
+# calling check method
 check(str)
