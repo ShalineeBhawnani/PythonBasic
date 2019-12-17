@@ -4,7 +4,7 @@
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
 
-from util import *
+from Utility.util import Queue
 class Customer:
     bankname="State Bank"
     def __init__(self, name, balance=0.00):
