@@ -3,10 +3,16 @@
 # @file  :Anagram.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
+
+#taking input from user
 s1 = input("Enter First String:")
 s2 = input("Enter Second String:")
+
+#creating method to check anagram
 def anagram(s1,s2):
     count = 0
+
+    #comparing length
     if(len(s1)!=len(s2)):
         print("Strings are not anagram")
     else:
