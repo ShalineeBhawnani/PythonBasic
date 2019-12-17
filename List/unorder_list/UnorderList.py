@@ -4,19 +4,23 @@
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
 
-from Utility.util import PrimeQueue
+#importing util from utility
+from Utility.util import Node
+
+#creating class
 class linked_list:
 
-
+    #default constuctor
     def __init__(self):
         self.head = None
 
-
+    #creating method to push the data
     def push(self, new_data):
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
 
+    # remove the list item with the item
     def deleteNode(self, key):
 
         temp = self.head
@@ -40,12 +44,15 @@ class linked_list:
 
         temp = None
 
+    #print the list
     def printList(self):
         temp = self.head
         while (temp):
             print
             " %d" % (temp.data),
             temp = temp.next
+
+    # search the linked list for the node that has this value
     def search(self, key):
         cur_node = self.head
         while cur_node.next is not None:
