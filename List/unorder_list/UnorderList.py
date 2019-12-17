@@ -4,7 +4,7 @@
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
 
-from util import *
+from Utility.util import PrimeQueue
 class linked_list:
 
 
