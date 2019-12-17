@@ -1,23 +1,32 @@
 # ******************************************************************************************************************
 # @purpose :Demonstrate BankAccount.
-# @file  :BankAccount.py
-# @author :ShalineeBhawnani
+# @file    :BankAccount.py
+# @author  :ShalineeBhawnani
 # *******************************************************************************************************************
 
+# importing Queue from util class
 from Utility.util import Queue
+
+#Creating a Class For Customer Initialisation
 class Customer:
+    # naming of Bank
     bankname="State Bank"
+
+    # parameterized constructor creation
     def __init__(self, name, balance=0.00):
+        
+        # body of the constructor
         self.name = name
         self._balance = balance
 
-
+    # method to deposit amount
     def deposit(self, amount):
         self._balance += amount
         print("balance", self._balance)
         queue.enqueue(amount)
         queue.printQueue()
 
+    # method to withdraw amount
     def withdraw(self, amount):
         if amount > self._balance:
             print("insufficient balance")
@@ -25,10 +34,14 @@ class Customer:
         queue.dequeue()
         queue.printQueue()
 
+        # printing balance
         print("balance", self._balance)
         return self._balance
 
+# printing welcome messege & program start from here
 print("wel_come to",Customer.bankname)
+
+# taking input from user
 num = int(input("enter how many people are in Queue: "))
 queue=Queue()
 for i in range(num):
@@ -38,9 +51,12 @@ queue.printQueue()
 c=Customer(name)
 num12=int(input("view options: "))
 
+# run the loop until customer count will be zero
 while num12>0:
 
+    # Asking, which opration user want to do for
     print('d-Deposit\nw-Withdraw\ne-Exit')
+
     option=input("Choose ur option!!")
     if option=='d' or option=='D' :
         amount=float(input(("enter ur amount")))
