@@ -1,3 +1,8 @@
+#******************************************************************************************************************
+# @purpose :Demonstrate Anagram Logic.
+# @file  :Anagram.py
+# @author :ShalineeBhawnani
+#*******************************************************************************************************************
 s1 = input("Enter First String:")
 s2 = input("Enter Second String:")
 def anagram(s1,s2):
