@@ -3,7 +3,7 @@
 # @file  :PrimeQueue.py
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
-from util import *
+from Utility.util import PrimeQueue
 def is_primeQueue(Range):
     lst=[]
     for i in range(2,Range+1):
