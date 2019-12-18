@@ -1,0 +1,61 @@
+{"Rice" :[
+    {
+    "name": "Brown Rice",
+    "weight": 20,
+    "price": 6898
+    
+  }, 
+  {
+    "name": "Arborio Rice",
+    "weight": 90,
+    "price": 23443
+    
+  }, 
+  {
+    "name": "Basmati Rice",
+    "weight": 120,
+    "price": 10000
+    
+  } 
+],
+"Pulses" :[
+    {
+    "name": "Green Gram",
+    "weight": 230,
+    "price": 100570
+    
+  }, 
+  {
+    "name": "Red Gram",
+    "weight": 20,
+    "price": 11100
+    
+  }, 
+  {
+    "name": "Chickpeas",
+    "weight": 10,
+    "price": 1000
+    
+  } 
+],
+"Wheats" :[
+    {
+    "name": "Bulgur",
+    "weight": 12,
+    "price": 21000
+    
+    }, 
+  {
+    "name": "Cake flour",
+    "weight": 20,
+    "price": 30000
+    
+  }, 
+  {
+    "name": "Bran",
+    "weight": 30,
+    "price": 66700
+    
+  } 
+]
+}
