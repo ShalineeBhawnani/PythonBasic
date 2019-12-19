@@ -1,5 +1,5 @@
 #******************************************************************************************************************
-# @purpose :Evaluate the Iventry object using JSON.
+# @purpose :Match regex from string and replace with user details.
 # @file  :inventory.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
@@ -7,7 +7,7 @@
 #importing regexp module
 import re
 class regex:
-    #method for reading txt file
+    #method to read and write file
     def check(self):
         with open ('file.txt', 'r') as f:
             text = f.read()
