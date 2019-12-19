@@ -4,7 +4,7 @@
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
 
-#importing regexp module
+#importing regex module
 import re
 class regex:
     #method to read and write file
