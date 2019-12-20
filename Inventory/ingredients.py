@@ -36,8 +36,8 @@ class InventoryFactory(object):
              }
 
 # Test factory
-# Generate shape name strings:
-def shapeNameGen(n):
+# Generate datas name strings:
+def datasNameGen(n):
 
     types = list(InventoryType)
 
@@ -45,8 +45,8 @@ def shapeNameGen(n):
         yield random.choice(types)
 
 data = \
-  [ InventoryFactory.create(i) for i in shapeNameGen(2)]
+  [ InventoryFactory.create(i) for i in datasNameGen(2)]
 
-for shape in data:
-    shape.name()
-    shape.price()
+for datas in data:
+    datas.name()
+    datas.price()
