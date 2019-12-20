@@ -13,8 +13,9 @@ class Stock:
         with open('stock_json.json') as f:
 
             #read string from JSON & storing in variable
-            data= json.load(f)
-            print(data)
+            data1= json.load(f)
+            data=data1["Stock_report"]
+        return data
 
 stock=Stock()
-stock.getStockDetails()
+a =stock.getStockDetails()
