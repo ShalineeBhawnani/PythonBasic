@@ -2,25 +2,51 @@ from __future__ import generators
 import random
 from enum import Enum, auto
 
+#declearing Enum
 class InventoryType(Enum):
     RICE  = auto() # Some Rice
     PULSES  = auto() # Some Pulses
 
+#creating interface
 class Inventory(object):
     pass
-
+#implementing interface in rice class
 class Rice(Inventory):
     def name(self): 
-        print("Rice.name")
+        print("Brown Rice")
+        print("Rajbhoga")
+        print("Kidney Beans")
     def price(self): 
-        print("Rice.price")
-
+        total_rice_price=0
+        price=2000
+        print("Brown Rice price",price)
+        price1=3000
+        print("Rajbhoga price",price)
+        price2=4000
+        print("Kidney Beans price",price)
+        total_rice_price=0
+        total_rice_price=price+price2+price2
+        print(total_rice_price)
+  
+#implementing interface in pulses class      
 class Pulses(Inventory):
     def name(self): 
-        print("Pulses.name")
+        print("Green Gram")
+        print("Black lentils")
+        print("Kidney Beans")
+    
     def price(self): 
-        print("Pulses.price")
-
+        price=250
+        print("Brown Rice price",price)
+        price1=350
+        print("Black lentils price",price1)
+        price2=450
+        print("Green Gram",price2)
+        total_pulses_price=0
+        total_pulses_price=price+price2+price2
+        print(total_pulses_price)
+                
+#factory design
 class InventoryFactory(object):
 
     @staticmethod
@@ -44,8 +70,8 @@ def datasNameGen(n):
     for i in range(n):
         yield random.choice(types)
 
-data = \
-  [ InventoryFactory.create(i) for i in datasNameGen(2)]
+#taking random value for 5 times
+data = [ InventoryFactory.create(i) for i in datasNameGen(5)]
 
 for datas in data:
     datas.name()
