@@ -20,18 +20,20 @@
     "amount": 300,
     "stock": 10000,
     "symbol": "$"
+    
     },
     {
     "share":"Sales",
     "amount": 200,
-    "stock": 14000,
+    "stock": 1000,
     "symbol": "$"
+    
     },
     {
     "share":"Marketing",
     "amount": 100,
     "stock": 15000,
-    "symbol": "$"
+    "symbol": "$"   
     }
     ],
 
