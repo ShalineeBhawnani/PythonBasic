@@ -4,8 +4,24 @@
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
 import json
-class StockAccount:
 
+if __name__ == '__main__' :
+    inp = input(" Are having an Existing Account? (y/n):")
+    if (inp == "y") or (inp == "Y"):
+        customerId=input("Enter the customer Id: ")
+        f = open("newUser.json","r")
+        #filename = input("Enter the File name: ")
+    else:
+        f = open("newUser.json","a+")
+        customerId=input("Enter the customer Id: ")
+        name = input("Enter the Name: ")
+        Age = int(input("Enter the Age: "))
+        phno = int(input("Enter your Mobile Number: "))
+        amount = int(input("Enter the Amount for Shares: "))
+        cont = f.write(' [{'+'    "customerId" : "'+ customerId +'",\n' + '       "Name" : "'+ name +'",\n' + '       "Age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'       "Share Amount" : "'+str(amount)+'"      }]\n')
+        print("The Data has been Stored Successfully in 'newUser.json' file. ")
+
+class StockAccount:
     #getting details from json file
     def getStockDetails(self):
         file=open("/home/bridgelabz/Videos/DS/Commercial_Data_Processing/company_shares.json","r")
@@ -16,6 +32,7 @@ class StockAccount:
         data3=data_key["Products"]
         entry1=0
 
+        #taking input from customer to buy shares
         type=int(input("\nType:0 for HCL share:Production\nType:1 for TCS share:Sales\nType 2 for CGI share: Marketing"))
         if type==0:
             for data in data_key["Shares"]:
@@ -46,18 +63,6 @@ class StockAccount:
 #creating object
 obj1=StockAccount()
 obj2=obj1.getStockDetails()
-# obj3=obj1.updateJson(obj2)
 
-if __name__ == '__main__' :
 
-    inp = input(" Are having an Existing Account? (y/n):")
-    if (inp == "y") or (inp == "Y"):
-        filename = input("Enter the File name: ")
-    else:
-        f = open("newUser.json","a+")
-        name = input("Enter the Name: ")
-        Age = int(input("Enter the Age: "))
-        phno = int(input("Enter your Mobile Number: "))
-        amount = int(input("Enter the Amount for Shares: "))
-        cont = f.write(' [{'+'     "Name" : "'+ name +'",\n' + '        "Age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'"Share Amount" : "'+str(amount)+'" }]\n'+''         )
-        print("The Data has been Stored Successfully in 'newUser.json' file. ")
+   
