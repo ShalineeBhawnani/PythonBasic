@@ -8,8 +8,29 @@ import json
 if __name__ == '__main__' :
     inp = input(" Are having an Existing Account? (y/n):")
     if (inp == "y") or (inp == "Y"):
-        customerId=input("Enter the customer Id: ")
+        
         f = open("newUser.json","r")
+        data_key= json.load(f)
+        user=input("\nType:4 for buying shares")
+        if user=='4':
+            customerId=input("Enter the customer Id: ")   
+            for data in data_key["User"]:
+            
+                if data["customerId"] == "1":
+                    print("Welcome",data["Name"])
+                    break
+                elif data["customerId"] == "2":
+                    print("Welcome",data["Name"])
+                elif data["customerId"] == "3":
+                    print("Welcome",data["Name"])
+                    break
+                elif data["customerId"] == "4":
+                    print("Welcome",data["Name"])
+                    break
+                else: 
+                    print("no customer")
+                    break
+                   
         #filename = input("Enter the File name: ")
     else:
         f = open("newUser.json","a+")

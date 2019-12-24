@@ -1,5 +1,16 @@
- [{    "customerId" : "1",
+ {"User":[
+   {   
+       "customerId" : "1",
        "Name" : "Shalinee",
        "Age"  : "23",
        "Ph.No" : "1234567",
-       "Share Amount" : "21" }]
+       "Share Amount" : "21" 
+    },  
+    {  "customerId" : "2",
+       "Name" : "gulabo",
+       "Age"  : "23",
+       "Ph.No" : "1234565767",
+       "Share Amount" : "21"
+    } 
+       ]
+ }
