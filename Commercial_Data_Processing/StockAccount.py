@@ -14,10 +14,12 @@ if __name__ == '__main__' :
         for data in data_key["User"]:
             if data["customerId"] == customerId:
                 print("Welcome",data["name"], "How much you want to buy shares") 
-                input_amount=int(input("enter amount")) 
-                data["share_amount"] += input_amount       
+                product_quantity=int(input("enter amount")) 
+                data["share_amount"] -= product_quantity 
+                product_quantity=int(input("enter quantity")) 
+                data["product"]+=product_quantity   
                 with open('newUser.json', '+w') as json_file:
-                        json.dump(data_key, json_file)
+                    json.dump(data_key, json_file)
     else:
         f = open("newUser.json","a+")
         customerId=input("Enter the customer Id: ")
@@ -25,7 +27,8 @@ if __name__ == '__main__' :
         Age = int(input("Enter the Age: "))
         phno = int(input("Enter your Mobile Number: "))
         amount = int(input("Enter the Amount for Shares: "))
-        cont = f.write(' [{'+'    "customerId" : "'+ customerId +'",\n' + '       "name" : "'+ name +'",\n' + '       "age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'       "share_amount" : "'+str(amount)+'"      }]\n')
+        product = int(input(" product qountity"))
+        cont = f.write(' [{'+'    "customerId" : "'+ customerId +'",\n' + '       "name" : "'+ name +'",\n' + '       "age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'       "share_amount" : "'+str(amount)+'"       "product"  : "'+str(product)+'",\n'+'             }]\n')
         print("The Data has been Stored Successfully in 'newUser.json' file. ")
 
 class StockAccount:
@@ -45,7 +48,9 @@ class StockAccount:
             for data in data_key["Shares"]:
                 if data['share'] == "Production":
                     input_amount=int(input("enter amount"))  
-                    data['amount'] -= input_amount
+                    data['amount'] += input_amount
+                    input_stock=int(input("enter stock"))  
+                    data['stock']-=input_stock
                     with open('company_shares.json', '+w') as json_file:
                         json.dump(data_key, json_file)
         if type==1:
