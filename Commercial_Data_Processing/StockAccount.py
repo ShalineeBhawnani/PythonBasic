@@ -3,13 +3,21 @@
 # @file  :Stock.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
-import json
+try:
+    import json
+except ImportError:
+    print("import error")
 
+#Executing as main program
 if __name__ == '__main__' :
     inp = input(" Are having an Existing Account? (y/n):")
     if (inp == "y") or (inp == "Y"):
-        f = open("newUser.json","r")
-        data_key= json.load(f)
+        try:
+            f = open("newUser.json","r")
+            data_key= json.load(f)
+
+        except FileNotFoundError:
+            print("file not found")
         customerId=input("please Type Your Registerd customer Id:")  
         for data in data_key["User"]:
             if data["customerId"] == customerId:
@@ -24,7 +32,7 @@ if __name__ == '__main__' :
         f = open("newUser.json","a+")
         customerId=input("Enter the customer Id: ")
         name = input("Enter the Name: ")
-        Age = int(input("Enter the Age: "))
+        age = int(input("Enter the Age: "))
         phno = int(input("Enter your Mobile Number: "))
         amount = int(input("Enter the Amount for Shares: "))
         product = int(input(" product qountity"))
