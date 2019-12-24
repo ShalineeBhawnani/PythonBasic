@@ -1,16 +1,1 @@
- {"User":[
-   {   
-       "customerId" : "1",
-       "Name" : "Shalinee",
-       "Age"  : "23",
-       "Ph.No" : "1234567",
-       "Share Amount" : "21" 
-    },  
-    {  "customerId" : "2",
-       "Name" : "gulabo",
-       "Age"  : "23",
-       "Ph.No" : "1234565767",
-       "Share Amount" : "21"
-    } 
-       ]
- }
+{"User": [{"customerId": "1", "name": "Shalinee", "age": "23", "Ph.No": "1234567", "share_amount": 20}, {"customerId": "2", "name": "gulabo", "age": "23", "Ph.No": "1234565767", "share_amount": 21}]}

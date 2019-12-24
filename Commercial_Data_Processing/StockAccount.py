@@ -8,30 +8,16 @@ import json
 if __name__ == '__main__' :
     inp = input(" Are having an Existing Account? (y/n):")
     if (inp == "y") or (inp == "Y"):
-        
         f = open("newUser.json","r")
         data_key= json.load(f)
-        user=input("\nType:4 for buying shares")
-        if user=='4':
-            customerId=input("Enter the customer Id: ")   
-            for data in data_key["User"]:
-            
-                if data["customerId"] == "1":
-                    print("Welcome",data["Name"])
-                    break
-                elif data["customerId"] == "2":
-                    print("Welcome",data["Name"])
-                elif data["customerId"] == "3":
-                    print("Welcome",data["Name"])
-                    break
-                elif data["customerId"] == "4":
-                    print("Welcome",data["Name"])
-                    break
-                else: 
-                    print("no customer")
-                    break
-                   
-        #filename = input("Enter the File name: ")
+        customerId=input("please Type Your Registerd customer Id:")  
+        for data in data_key["User"]:
+            if data["customerId"] == customerId:
+                print("Welcome",data["name"], "How much you want to buy shares") 
+                input_amount=int(input("enter amount")) 
+                data["share_amount"] += input_amount       
+                with open('newUser.json', '+w') as json_file:
+                        json.dump(data_key, json_file)
     else:
         f = open("newUser.json","a+")
         customerId=input("Enter the customer Id: ")
@@ -39,7 +25,7 @@ if __name__ == '__main__' :
         Age = int(input("Enter the Age: "))
         phno = int(input("Enter your Mobile Number: "))
         amount = int(input("Enter the Amount for Shares: "))
-        cont = f.write(' [{'+'    "customerId" : "'+ customerId +'",\n' + '       "Name" : "'+ name +'",\n' + '       "Age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'       "Share Amount" : "'+str(amount)+'"      }]\n')
+        cont = f.write(' [{'+'    "customerId" : "'+ customerId +'",\n' + '       "name" : "'+ name +'",\n' + '       "age"  : "'+str(Age)+'",\n'+'       "Ph.No" : "'+str(phno)+'",\n'+'       "share_amount" : "'+str(amount)+'"      }]\n')
         print("The Data has been Stored Successfully in 'newUser.json' file. ")
 
 class StockAccount:
