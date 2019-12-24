@@ -1,8 +1,8 @@
-#******************************************************************************************************************
+#**********************************************************************************************************************
 # @purpose :Clinique Management System using JSON.
 # @file  :Clinique.py
 # @author :ShalineeBhawnani
-#*******************************************************************************************************************
+#**********************************************************************************************************************
 try:
     import json
 except ImportError:
@@ -20,5 +20,21 @@ class Clinique:
             print('Type: ' + p['type'])
             print("Address:" +p['address'])
             print('ContactNumber ' +p['contactNumber'])
+    
+    def BookAppoinment(self,data):
+
+        for p in data['Patients']:
+            print('Name: ' + p['name'])
+            print('Gender: ' + p['profession'])
+            print('Type: ' + p['gender'])
+            print("Address:" +p['age'])
+            print("weight:" +p['weight'])
+            print("height:" +p['height'])
+           
+    
+
+        
+
 clinique=Clinique()
 clinique.FileOpen()
+clinique.BookAppoinment(data)
