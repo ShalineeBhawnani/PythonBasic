@@ -1,14 +1,8 @@
-# class Deck:
-#     suit =["Clubs", "Diamonds", "Hearts", "Spades"]
-#     print(suit)
-#     rank =["2", "3", "4", "5", "6", "7", "8", "9", "10","Jack", "Queen", "King", "Ace"]
-
-#     n=len(suit)*len(rank)
-#     deck=str(n)
-#     for i in rank:
-#         for j in suit:
-#             deck[len(suit)*i+j]=rank[i]+"of"+suit[j]
-# obj=Deck()
+#******************************************************************************************************************
+# @purpose :Evaluate the Stock Report using JSON.
+# @file  :Stock.py
+# @author :ShalineeBhawnani
+#*******************************************************************************************************************
 import random
 class Card(object):
     def __init__(self, suit, val):
@@ -110,7 +104,7 @@ myDeck = Deck()
 myDeck.shuffle()
 # deck.show()
 
-bob = Player("Bob")
-bob.sayHello()
-bob.draw(myDeck, 5)
-bob.showHand()
+name = Player("Shalinee")
+name.sayHello()
+name.draw(myDeck, 5)
+name.showHand()
