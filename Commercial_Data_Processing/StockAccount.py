@@ -48,7 +48,6 @@ class StockAccount:
         data1=data_key["Company"]
         data2=data_key["Shares"]
         data3=data_key["Products"]
-        entry1=0
 
         #taking input from customer to buy shares
         type=int(input("\nType:0 for HCL share:Production\nType:1 for TCS share:Sales\nType 2 for CGI share: Marketing"))
