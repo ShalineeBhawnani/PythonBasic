@@ -3,20 +3,22 @@
 # @file  :Stock.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
-import random
+
+# import statement
+try:
+    import random
+except ImportError:
+    print("import Error")
+
+#class card
 class Card(object):
+    # constructor
     def __init__(self, suit, val):
         self.suit = suit
         self.value = val
 
     # Implementing build in methods so that you can print a card object
-    def __unicode__(self):
-        return self.show()
-    def __str__(self):
-        return self.show()
-    def __repr__(self):
-        return self.show()
-        
+   
     def show(self):
         if self.value == 1:
             val = "Ace"
