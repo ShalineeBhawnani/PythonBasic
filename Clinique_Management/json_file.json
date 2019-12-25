@@ -29,23 +29,23 @@
     {
         "name": "Riya",
         "gender": "Female",
-        "type": "Doctor",
-        "address": "122 Harrow Street",
+        "id": "Doctor",
+        "availability": "12AM",
         "contactNumber": "07473033312"    
     },
     {
         "name": "Mukesh",
         "gender": "Male",
-        "type": "Doctor",
-        "address": "102 BDA complex",
+        "id": "Doctor",
+        "availability": "5AM",
         "contactNumber": "0546457682"     
 
     },
     {
         "name": "Yogesh",
         "gender": "Male",
-        "type": "Doctor",
-        "address": "112 Marathali",
+        "id": "Doctor",
+        "availability": "12PM",
         "contactNumber": "07454657787"    
     }
 ]
