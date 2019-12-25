@@ -31,23 +31,23 @@
 [
     {
         "name": "Riya",
-        "gender": "Female",
-        "id": "Doctor",
+        "specialization": "Surgeon",
+        "id": 201,
         "availability": "12AM",
         "contactNumber": "07473033312"    
     },
     {
         "name": "Mukesh",
-        "gender": "Male",
-        "id": "Doctor",
+        "specialization": "Surgeon1",
+        "id": 121,
         "availability": "5AM",
         "contactNumber": "0546457682"     
 
     },
     {
         "name": "Yogesh",
-        "gender": "Male",
-        "id": "Doctor",
+        "specialization": "Cardiologist",
+        "id": 234,
         "availability": "12PM",
         "contactNumber": "07454657787"    
     }
