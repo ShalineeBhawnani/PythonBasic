@@ -16,13 +16,17 @@ if __name__ == '__main__' :
             data= json.load(f)
     except FileNotFoundError:
         print("file not found")
-    
+# Search class  
 class Search:
+    #searching for doctors & patients
      def search(self):
          if (inp == "d") or (inp == "D"):
+            #printing doctors details
             for doctor in data["Doctors"]:
                 print(doctor)
+         
          elif (inp=="p") or (inp=="P"):
+            #printing Patients details
             for patient in data["Patients"]:
                 print(patient)
 find=Search()
