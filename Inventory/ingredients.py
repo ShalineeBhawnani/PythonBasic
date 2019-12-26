@@ -1,8 +1,8 @@
-#Import generators for  sequence of results 
-from __future__ import generators
 try:
-    import random
-    from enum import Enum, auto
+	#Import generators for  sequence of results 
+	from __future__ import generators
+	import random
+	from enum import Enum, auto
 except:
   print("An exception occurred")
 #declearing Enum
@@ -64,8 +64,7 @@ class InventoryFactory(object):
                InventoryType.PULSES:  Pulses                
              }
 
-# Test factory
-# Generate datas name strings:
+# Test factory Generate datas name strings:
 def datasNameGen(n):
 
     types = list(InventoryType)
