@@ -1,5 +1,5 @@
 #******************************************************************************************************************
-# @purpose :Match regex from string and replace with user details.
+# @purpose :Match Regex From String and Replace With User Details.
 # @file  :regex.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
