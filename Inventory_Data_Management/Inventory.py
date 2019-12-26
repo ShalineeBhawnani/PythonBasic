@@ -54,6 +54,7 @@ class InventoryManagement:
         #converting data in
         json_string = json.dumps(data)
         print(json_string)
-
+        
+#creating object of class
 obj= InventoryManagement()  
 obj.print_inventory_details()
