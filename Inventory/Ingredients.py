@@ -3,10 +3,11 @@
 # @file  :Ingredients.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************try:
-	#Import generators for  sequence of results 
-	from __future__ import generators
-	import random
-	from enum import Enum, auto
+#Import generators for  sequence of results 
+try:
+    from __future__ import generators
+    import random
+    rom enum import Enum, auto
 except:
   print("An exception occurred")
 #declearing Enum
