@@ -1,4 +1,0 @@
-class Doctor:
-
-
-doc=Doctor()
