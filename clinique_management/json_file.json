@@ -1,0 +1,57 @@
+  
+{"Patients":[
+    {
+        "name": "mona",
+        "id": "Patients",
+        "profession": "Student",
+        "gender": "Female",
+        "age": "22",
+        "weight": "53",
+        "height": "172"
+    },
+    {   "name": "priya",
+        "id": "Patients",
+        "profession": "Student",
+        "gender": "Female",
+        "age": "22",
+        "weight": "53",
+        "height": "112"
+
+    },
+    {
+        "name": "geetesh",
+        "id": "Patients",
+        "profession": "Student",
+        "gender": "Male",
+        "age": "22",
+        "weight": "53",
+        "height": "152"
+    }
+          ],
+"Doctors":
+[
+    {
+        "name": "Riya",
+        "specialization": "Surgeon",
+        "id": 201,
+        "availability": "12AM",
+        "contactNumber": "07473033312"    
+    },
+    {
+        "name": "Mukesh",
+        "specialization": "Surgeon1",
+        "id": 121,
+        "availability": "5AM",
+        "contactNumber": "0546457682"     
+
+    },
+    {
+        "name": "Yogesh",
+        "specialization": "Cardiologist",
+        "id": 234,
+        "availability": "12PM",
+        "contactNumber": "07454657787"    
+    }
+]
+
+}
