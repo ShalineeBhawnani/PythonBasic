@@ -7,16 +7,16 @@
 #importing json file
 import json
 
-class inventory:
-    def iventryObj(self):
+class InventoryManagement:
+    def print_inventory_details(self):
         #Reading JSON from a File
         with open('json_file.json') as f:
 
             #read string from JSON & storing in variable
             data= json.load(f)
 
-        for Rice in data['Rice']:
-            print(Rice)
+        for rice in data['Rice']:
+            print(rice)
         for Pulses in data['Pulses']:
             print(Pulses)
         for Wheats in data['Wheats']:
@@ -54,6 +54,7 @@ class inventory:
         #converting data in
         json_string = json.dumps(data)
         print(json_string)
-
-obj=inventory()  
-obj.iventryObj()
+        
+#creating object of class
+obj= InventoryManagement()  
+obj.print_inventory_details()

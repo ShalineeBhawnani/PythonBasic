@@ -1,7 +1,15 @@
-from __future__ import generators
-import random
-from enum import Enum, auto
-
+#******************************************************************************************************************
+# @purpose :Evaluate the Inventory using JSON.
+# @file  :Ingredients.py
+# @author :ShalineeBhawnani
+#*******************************************************************************************************************
+#Import generators for  sequence of results 
+try:
+    from __future__ import generators
+    import random
+    rom enum import Enum, auto
+except:
+  print("An exception occurred")
 #declearing Enum
 class InventoryType(Enum):
     RICE  = auto() # Some Rice
@@ -61,8 +69,7 @@ class InventoryFactory(object):
                InventoryType.PULSES:  Pulses                
              }
 
-# Test factory
-# Generate datas name strings:
+# Test factory Generate datas name strings:
 def datasNameGen(n):
 
     types = list(InventoryType)

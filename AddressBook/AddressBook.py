@@ -3,11 +3,15 @@
 # @file  :AddressBook.py
 # @author :ShalineeBhawnani
 #**********************************************************************************************************************
+<<<<<<< HEAD
 
+=======
+>>>>>>> 75cfd8756bf3a0db400e728cfb9fb997913083b7
 try:
     import json
 except ImportError:
     print("import error")
+<<<<<<< HEAD
 
 # address book class is created
 class AddressBook():
@@ -145,3 +149,13 @@ class AddressBook():
         for i in range(len(data)):
 
              print("**", (data[i]["first_name"]), end=" ")
+=======
+class AddressBook:
+    def print_address_details(self):
+        #Reading JSON from a File
+        with open('/home/bridgelabz/Videos/DS/Address_Book/address_json.json') as f:
+            #read string from JSON & storing in variable
+            data= json.load(f)
+address=AddressBook()
+address.print_address_details()
+>>>>>>> 75cfd8756bf3a0db400e728cfb9fb997913083b7

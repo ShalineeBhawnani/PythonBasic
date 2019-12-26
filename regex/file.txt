@@ -1,1 +1,0 @@
-text =Hello <<name>>, We have your full name as <<fullname>> in our system. Your contact number is 91-xxxxxxxxxx. Please,let us know in case of any clarification. Thank you BridgeLabz XX/XX/XXXX.

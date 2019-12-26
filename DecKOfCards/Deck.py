@@ -104,7 +104,7 @@ class Player(object):
 myDeck = Deck()
 myDeck.shuffle()
 
-
+#giving player details
 name = Player("Shalinee")
 name.sayHello()
 name.draw(myDeck, 5)
