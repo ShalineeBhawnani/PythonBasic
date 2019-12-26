@@ -1,0 +1,7 @@
+ [{    "name" : "shalu",
+       "id" : "1",
+       "gender" : "female",
+       "age" : "23",
+       "profession"  : "intern",
+       "weight" : "58",
+       "height" : "5.3"  }]
