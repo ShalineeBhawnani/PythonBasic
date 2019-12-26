@@ -1,7 +1,10 @@
+#Import generators for  sequence of results 
 from __future__ import generators
-import random
-from enum import Enum, auto
-
+try:
+    import random
+    from enum import Enum, auto
+except:
+  print("An exception occurred")
 #declearing Enum
 class InventoryType(Enum):
     RICE  = auto() # Some Rice
