@@ -12,19 +12,21 @@ except ImportError:
 
 #creating play method
 def playingCard():
-    cards = CardGame()  # object is created for card game
+    # object is created for card game
+    cards = CardGame()  
+    # distribute function is called from card game and results will be printed in 2d array
+    data = cards.distribute()  
 
-    data = cards.distribute()  # distribute function is called from card game and results will be printed in 2d array
-
-    # print(data)   # distributed card will be printed out
-
-    for hand in range(len(data)):  # for loop is used for adding each players cards to the linked list
+    # print(data) & distributed card will be printed out
+    # for loop is used for adding each players cards to the linked list
+    for hand in range(len(data)): 
         data[hand].sort()
-        queue.enqueue(data[hand])  # hands are updated to the queue via linked list
+        # hands are updated to the queue via linked list
+        queue.enqueue(data[hand])  
     print()
     print()
-    print(queue.get_queue())  # same distributed cards are printed out in linked list format in queue
-
+    # same distributed cards are printed out in linked list format in queue
+    print(queue.get_queue())  
 
 """
 main function is called
