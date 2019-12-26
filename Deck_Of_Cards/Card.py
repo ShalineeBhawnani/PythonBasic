@@ -1,4 +1,8 @@
-
+#******************************************************************************************************************
+# @purpose :Evaluate the DeckOfCards.
+# @file  :Card.py
+# @author :ShalineeBhawnani
+#*******************************************************************************************************************
 # @import statement
 try:
     from DS.PythonBasic import Deck
@@ -6,7 +10,7 @@ try:
 except ImportError:
     print("import error")
 
-
+#creating play method
 def playingCard():
     cards = CardGame()  # object is created for card game
 
