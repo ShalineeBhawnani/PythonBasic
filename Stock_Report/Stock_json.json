@@ -1,0 +1,24 @@
+{"Stock_report" :[
+    {
+    "stock_names": "Growth Stocks",
+    "number_of_share": 22,
+    "share_price": 183.28,
+    "stock_price": 121
+    
+  }, 
+  {
+    "stock_names": "Defensive Stocks",
+    "number_of_share": 30,
+    "share_price": 188.89,
+    "stock_price" : 221
+    
+  }, 
+  {
+    "stock_names": "Beta Stocks",
+    "number_of_share": 50,
+    "share_price": 23.45,
+    "stock_price": 111
+    
+  } 
+  ]
+}
