@@ -1,0 +1,10 @@
+ [{    "name" : "sinu",
+       "id" : "2",
+       "specialization"  : "nuro",
+       "contactNumber" : "789",
+       "availability" : "2am"    }]
+ [{    "name" : "golu",
+       "id" : "4",
+       "specialization"  : "fiver",
+       "contactNumber" : "2343645",
+       "availability" : "2pm"    }]

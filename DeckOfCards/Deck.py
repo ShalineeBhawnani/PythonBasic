@@ -1,13 +1,21 @@
 #******************************************************************************************************************
-# @purpose :Evaluate the Stock Report using JSON.
-# @file  :Stock.py
+# @purpose :Erankuate the DeckOfCards JSON.
+# @file  :Deck.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
-import random
+
+# import statement
+try:
+    import random
+except ImportError:
+    print("import Error")
+
+#class card
 class Card(object):
-    def __init__(self, suit, val):
+    # constructor
+    def __init__(self, suit, rank):
         self.suit = suit
-        self.value = val
+        self.rank = rank
 
     # Implementing build in methods so that you can print a card object
     def __unicode__(self):
@@ -18,18 +26,18 @@ class Card(object):
         return self.show()
         
     def show(self):
-        if self.value == 1:
-            val = "Ace"
-        elif self.value == 11:
-            val = "Jack"
-        elif self.value == 12:
-            val = "Queen"
-        elif self.value == 13:
-            val = "King"
+        if self.rank == 1:
+            rank = "Ace"
+        elif self.rank == 11:
+            rank = "Jack"
+        elif self.rank == 12:
+            rank = "Queen"
+        elif self.rank == 13:
+            rank = "King"
         else:
-            val = self.value
+            rank = self.rank
 
-        return "{} of {}".format(val, self.suit)
+        return "{} of {}".format(rank, self.suit)
 
 
 class Deck(object):
@@ -46,8 +54,8 @@ class Deck(object):
     def build(self):
         self.cards = []
         for suit in ['Hearts', 'Clubs', 'Diamonds', 'Spades']:
-            for val in range(1,14):
-                self.cards.append(Card(suit, val))
+            for rank in range(1,14):
+                self.cards.append(Card(suit, rank))
 
     # Shuffle the deck
     def shuffle(self, num=1):
@@ -59,8 +67,6 @@ class Deck(object):
                 if i == randi:
                     continue
                 self.cards[i], self.cards[randi] = self.cards[randi], self.cards[i]
-            # You can also use the build in shuffle method
-            # random.shuffle(self.cards)
 
     # Return the top card
     def deal(self):
@@ -95,14 +101,9 @@ class Player(object):
     def discard(self):
         return self.hand.pop()
 
-# Test making a Card
-# card = Card('Spades', 6)
-# print card
-
-# Test making a Deck
 myDeck = Deck()
 myDeck.shuffle()
-# deck.show()
+
 
 name = Player("Shalinee")
 name.sayHello()
