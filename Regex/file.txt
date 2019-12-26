@@ -1,0 +1,1 @@
+text =Hello <<Shalu>>, We have your full name as <<Shalu Bhawnani>> in our system. Your contact number is 91-4567586948. Please,let us know in case of any clarification. Thank you BridgeLabz 01/01/2016.
