@@ -2,7 +2,7 @@
 # @purpose :Evaluate the Inventory using JSON.
 # @file  :Ingredients.py
 # @author :ShalineeBhawnani
-#*******************************************************************************************************************try:
+#*******************************************************************************************************************
 #Import generators for  sequence of results 
 try:
     from __future__ import generators
