@@ -1,31 +1,38 @@
-{"person's" :[
-    {
-    "first name":"Ditya",
-    "last names": "Bjaja ",
-    "address": "sankar Nagar",
-    "city":"Ditya",
-    "zip": "Bjaja ",
-    "state": "sankar Nagar"
-    
-    },
-    {
-     "first name":"Ditya",
-     "last names": "Bjaja ",
-     "address": "sankar Nagar ",
-     "city":"Ditya",
-     "zip": "Bjaja ",
-     "state": "sankar Nagar "
-        
-    },
-    {
-     "first name":"Ditya",
-     "last names": "Bjaja ",
-     "address": "sankar Nagar ",
-     "city":"Ditya",
-     "zip": "Bjaja ",
-     "state": "sankar Nagar "
-        
-    }
-    ]
-   
-}
+[
+  {
+    "first_name": "dgfd",
+    "last_name": "dfgfh",
+    "address": "ghgf",
+    "city": "jammu",
+    "state": "j&k",
+    "zipcode": 123456,
+    "phone_number": 918770206678
+  },
+  {
+    "first_name": "gursheesh",
+    "last_name": "kour",
+    "address": "abc",
+    "city": "jammu",
+    "state": "j&k",
+    "zipcode": 181101,
+    "phone_number": 4536763533
+  },
+  {
+    "first_name": "nikihl",
+    "last_name": "jain",
+    "address": "ghi",
+    "city": "bhopal",
+    "state": "bhopal",
+    "zipcode": 130054,
+    "phone_number": 124632176836
+  },
+  {
+    "first_name": "shalini",
+    "last_name": "bhawnani",
+    "address": "def",
+    "city": "chhatisgarh",
+    "state": "chhatisgarh",
+    "zipcode": 634216,
+    "phone_number": 76343676883
+  }
+]

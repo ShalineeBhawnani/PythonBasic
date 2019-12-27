@@ -3,30 +3,25 @@
 # @file  :AddressBook.py
 # @author :ShalineeBhawnani
 #**********************************************************************************************************************
-<<<<<<< HEAD
-
-=======
->>>>>>> 75cfd8756bf3a0db400e728cfb9fb997913083b7
 try:
     import json
 except ImportError:
     print("import error")
-<<<<<<< HEAD
 
 # address book class is created
-class AddressBook():
-    # here file is initialised with file name
-    def __init__(self, filename):
-        # json file is loaded  
-        with open(filename) as f:
-            self.data = json.load(f)
+class AddressBook():  
 
-    # this function is used for added data to the json file 
-    def addRecord(self): 
+    # here file is initialised with file name
+    def __init__(self, filename):  
+        with open(filename) as f:
+             # json file is loaded
+            self.data = json.load(f) 
+    # this function is used for added data to the json file
+    def addRecord(self):  
         while True:
             try:
-                cities = ["mumbai", "pune", "bangalore", "delhi", "hyderabad", "surat", ]
-                states = ["maharastra", "karnataka", "delhi", "telangana"]
+                cities = ["jammu", "chhatisgarh", "bhopal" ]
+                states = ["j&k", "chhatisgarh", "bhopal"]
 
                 first_name = input("enter your first name :")
                 if first_name.isalpha() is False:
@@ -39,12 +34,12 @@ class AddressBook():
                     continue
 
                 address = input("enter your 1st and 2nd line of address :")
-                if len(address) >= 60:
-                    print("length of address should be less than 60")
+                if len(address) >= 100:
+                    print("length of address should be less than 100")
                     continue
 
                 for i in cities:
-                    print("**", i, end=" ")
+                    print("cities", i, end=" ")
                 city = input("\nenter the city name from above list :")
                 while True:
                     flag = 0
@@ -84,14 +79,15 @@ class AddressBook():
                 print("user data added successfully")
 
                 data = self.data
-                data.append(dic)  # user data is added to the file
-
-                print(dic)  # now data and input data is called in main file
+                # user data is added to the file
+                data.append(dic)
+                # now data and input data is called in main file  
+                print(dic)  
                 break
             except ValueError:
                 print("check user input")
-
-    def delete(self):  # this function is used for deleting data in the json file
+    # this function is used for deleting data in the json file
+    def delete(self):  
 
         # input is used for deleting data
         datadelete = input("\nname of the person you want to delete from the address book :")
@@ -100,23 +96,24 @@ class AddressBook():
         name = []
         for i in range(len(self.data)):
             name.append(self.data[i]["first_name"])
-
-        index = -1  # index is used for keeping track of the index where we have to delete the data
-
-        for para in self.data:  # para is used for transversing through the data
+        # index is used for keeping track of the index where we have to delete the data
+        index = -1  
+        # para is used for transversing through the data
+        for para in self.data:  
             index += 1
-
-            if datadelete == para["first_name"]:  # if condition is used for checking user input
-                del self.data[index]  # here data is deleted if data  matches
-                return index  # index is returned for future
-
+            # if condition is used for checking user input
+            if datadelete == para["first_name"]: 
+                # here data is deleted if data  matches 
+                del self.data[index] 
+                # index is returned for future 
+                return index  
         print(datadelete, " is deleted from address book ")
-
-    def printData(self):  # this function is used for printing data in mailing format
+    # this function is used for printing data in mailing format
+    def printData(self):  
 
         data = self.data
-
-        for i in range(len(data)):  # for loop is used transversing values through data
+        # for loop is used transversing values through data
+        for i in range(len(data)):  
             for j in data[i].values():
                 print(j)
             print()
@@ -140,8 +137,9 @@ class AddressBook():
         self.data = sorteddata  # now we have swapped data with sorted data
         return sorteddata  # here we have return sorted data
 
-    def dumping(self, filename):  # this function is used for dumping edited data to the json file
-        with open('address_book_json', 'w') as f:
+    def dumping(self, filename):  
+        # this function is used for dumping edited data to the json file
+        with open('/home/bridgelabz/Videos/DS/AddressBook/address_json.json', 'w') as f:
             json.dump(self.data, f, indent=2)
 
     def onlyNames(self):  # this function is used for printing only names from the file
@@ -149,13 +147,3 @@ class AddressBook():
         for i in range(len(data)):
 
              print("**", (data[i]["first_name"]), end=" ")
-=======
-class AddressBook:
-    def print_address_details(self):
-        #Reading JSON from a File
-        with open('/home/bridgelabz/Videos/DS/Address_Book/address_json.json') as f:
-            #read string from JSON & storing in variable
-            data= json.load(f)
-address=AddressBook()
-address.print_address_details()
->>>>>>> 75cfd8756bf3a0db400e728cfb9fb997913083b7
