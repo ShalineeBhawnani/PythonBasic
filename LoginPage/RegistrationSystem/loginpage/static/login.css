@@ -1,15 +1,27 @@
 body {
     background-color: aquamarine;
+    text-align: center;
+    position: sticky;
+    padding-top: 200px;
+  
+
 }
 h1{
     color:black
 }
 #pass{
-    color: cadetblue;
+    color: rgb(26, 183, 189);
 }
-.user{
+#user{
     color: blueviolet
 }
 #submit{
-    color: #000;
+    color: rgb(231, 40, 40);
+    
 }
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
