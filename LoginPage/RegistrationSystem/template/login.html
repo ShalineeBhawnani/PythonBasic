@@ -1,19 +1,15 @@
 {% load static %}
     <html>
     <head>
-        <title>Login</title>
+       
         <link rel="stylesheet" type="text/css" href="{% static 'style/login.css'%}">
     </head>
-<body>
-    <h1>LOGIN PAGE</h1>
-    <form>
-       <div> Username:</div>
-        <input id =user type = "text" name = "user name">
-        <br>
-        <div>Password:</div>
-        <input  id =pass type = "text" name = "Password">
-        <br><br>
-        <input id=submit type="submit" value="submit"><br>
+<div class="login">
+    <h1>Login</h1>
+    <form method="post">
+        <input type="text" name="u" placeholder="Username" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
     </form>
-</body>
+</div>
 </html>
