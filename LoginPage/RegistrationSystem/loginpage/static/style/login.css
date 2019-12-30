@@ -1,0 +1,30 @@
+
+body {
+    background-color:blanchedalmond;
+    text-align: center;
+    position: sticky;
+    padding-top: 200px;
+    font-style: italic;
+
+}
+h1{
+    color:darkred;
+    font-size:35;
+    font-style: italic;
+}
+#pass{
+    color: rgb(58, 206, 211);
+    font-size:20;
+    font-style: italic;
+}
+#user{
+    color: blueviolet;
+    font-size:20;
+    font-style: italic;
+
+}
+#submit{
+    color: rgba(179, 62, 62, 0.671);
+    font-size:18
+   
+}
