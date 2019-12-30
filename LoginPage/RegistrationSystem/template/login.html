@@ -1,15 +1,23 @@
 {% load static %}
     <html>
     <head>
-       
-        <link rel="stylesheet" type="text/css" href="{% static 'style/login.css'%}">
+       <link rel="stylesheet" type="text/css" href="{% static 'style/login.css'%}">
     </head>
 <div class="login">
     <h1>Login</h1>
     <form method="post">
         <input type="text" name="u" placeholder="Username" required="required" />
         <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+        <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+         <a href="#">Register</a>
+         <a href="#">Lost your password?</a>
+       
     </form>
 </div>
+
+<script>
+function myFunction() {
+  location.replace("https://www.w3schools.com")
+}
+</script>
 </html>

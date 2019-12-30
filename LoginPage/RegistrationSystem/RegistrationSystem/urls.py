@@ -5,4 +5,5 @@ from loginpage.views import login
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$',login,name='login'),
+    #url(r'^api-auth/', include('rest_framework.urls'))
 ]
