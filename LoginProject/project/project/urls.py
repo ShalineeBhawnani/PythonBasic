@@ -27,5 +27,6 @@ urlpatterns = [
     path('api/token/', obtain_jwt_token), 
     path('login/', views.Login.as_view(), name='login'),
     path('register/', views.Registrations.as_view(), name='registration'),
-    path('activate/', views.activate(request,surl), name='activate'),
+   # path('activate/', views.activate(request,surl), name='activate'),
+    #url(r'^auth/', include('djoser.urls')),
 ]
