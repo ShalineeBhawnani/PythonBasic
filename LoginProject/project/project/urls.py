@@ -17,7 +17,7 @@ from django.urls import path,include,re_path
 from django.conf.urls import url
 from rest_framework_jwt.views import obtain_jwt_token
 from snippets import views
-from snippets.views import Login, Registrations, activate
+from snippets.views import Login, Registrations,Logout,ForgotPassword, activate
 from django_short_url.views import get_surl
 from django_short_url.models import ShortURL
 
@@ -27,6 +27,8 @@ urlpatterns = [
     path('api/token/', obtain_jwt_token), 
     path('login/', views.Login.as_view(), name='login'),
     path('register/', views.Registrations.as_view(), name='registration'),
+    path('Logout/',views.Logout.as_view(), name='Logout'),
+    path('ForgotPassword/',views.ForgotPassword.as_view(), name='ForgotPassword'),
    # path('activate/', views.activate(request,surl), name='activate'),
     #url(r'^auth/', include('djoser.urls')),
 ]

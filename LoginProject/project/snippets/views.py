@@ -13,7 +13,7 @@ from django.contrib import messages
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import EmailSerializer,LoginSerializer, RegistrationSerializer, UserSerializer
-#from django.core.validators import validate_email
+from django.core.validators import validate_email
 from django_short_url.views import get_surl
 from django_short_url.models import ShortURL
 from django.http import HttpResponse, HttpResponseRedirect , response
