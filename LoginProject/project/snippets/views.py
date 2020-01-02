@@ -47,27 +47,187 @@ class Login(GenericAPIView):
 
 
 
-class Registrations(GenericAPIView):
+# class Registrations(GenericAPIView):
 
-    serializer_class = RegistrationSerializer
+#     serializer_class = RegistrationSerializer
     
-    def get(self, request):
-        return render(request, 'registration.html')
+#     def get(self, request):
+#         return render(request, 'registration.html')
         
+#     def post(self, request):
+
+#         if request.method == 'POST':
+#             form = UserCreationForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#                 username = form.cleaned_data.get('username')
+#                 raw_password = form.cleaned_data.get('password')
+#                 user = authenticate(username=username, password=raw_password)
+#                 login(request, user)
+#                 return redirect('home')
+#         else:
+#             form = UserCreationForm()
+#         return render(request, 'registration.html', {})
+
+class Registrations(GenericAPIView):
+    """
+    :param request: request is made after filling the form
+    :return: will send him the JWT token for validation
+    """
+    serializer_class = UserSerializer
+
+    def post(self, request):
+        
+        username = request.data['username']
+        email = request.data['email']
+        password = request.data['password']
+
+
+        smd = {
+            'success': False,
+            'message': "not registered yet",
+            'data': [],
+        }
+
+        try:
+            validate_email(email)
+        except Exception as e:
+            smd['message'] = "please enter vaild email address"
+            logger.error("error: %s while as email entered was not a vaild email address", str(e))
+            return HttpResponse(json.dumps(smd), status=400)
+
+        # user input is checked
+        if username == "" or email == "" or password == "":
+            smd['message'] = "one of the details missing"
+            logger.error("one of the details missing logging in")
+            return HttpResponse(json.dumps(smd), status=400)
+
+        # if email exists it will show error message
+        elif User.objects.filter(email=email).exists():
+            smd['message'] = "email address is already registered "
+            logger.error("email address is already registered  while logging in")
+            return HttpResponse(json.dumps(smd), status=400)
+
+        else:
+            try:
+                user_created = User.objects.create_user(username=username, email=email, password=password,
+                                                        is_active=True)
+                user_created.save()
+
+                # user is unique then we will send token to his/her email for validation
+                if user_created is not None:
+                    token = token_activation(username, password)
+                    url = str(token)
+                    surl = get_surl(url)
+                    z = surl.split("/")
+
+                    mail_subject = "Activate your account by clicking below link"
+                    mail_message = render_to_string('user/email_validation.html', {
+                        'user': user_created.username,
+                        'domain': get_current_site(request).domain,
+                        'surl': z[2]
+                    })
+                    recipient_email = user_created.email
+                    email = EmailMessage(mail_subject, mail_message, to=[recipient_email])
+                    email.send()
+                    smd = {
+                        'success': True,
+                        'message': 'please check the mail and click on the link  for validation',
+                        'data': [token],
+                    }
+                    logger.info("email was sent to %s email address ", username)
+                    return HttpResponse(json.dumps(smd), status=201)
+            except Exception as e:
+                smd["success"] = False
+                smd["message"] = "username already taken"
+                logger.error("error: %s while loging in ", str(e))
+                return HttpResponse(json.dumps(smd), status=400)
+
+class Logout(GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def get(self, request):
+        """
+        :param request: logout request is made
+        :return: we will delete the token which was stored in redis
+        """
+        smd = {"success": False, "message": "not a vaild user", "data": []}
+        try:
+            user = request.user
+            # red = Redis()
+            red.delete(user.username)
+            smd = {"success": True, "message": " logged out", "data": []}
+            logger.info("%s looged out succesfully ", user)
+            return HttpResponse(json.dumps(smd), status=200)
+        except Exception:
+            logger.error("something went wrong while logging out")
+            return HttpResponse(json.dumps(smd), status=400)
+
+
+class ForgotPassword(GenericAPIView):
+    #request is made for resetting password
+    serializer_class = EmailSerializer
+
     def post(self, request):
 
-        if request.method == 'POST':
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                username = form.cleaned_data.get('username')
-                raw_password = form.cleaned_data.get('password')
-                user = authenticate(username=username, password=raw_password)
-                login(request, user)
-                return redirect('home')
+        global response
+        email = request.data["email"]
+        response = {
+            'success': False,
+            'message': "not a vaild email ",
+            'data': []
+        }
+        # email validation is done here
+
+        if email == "":
+            response['message'] = 'email field is empty please provide vaild input'
+            return HttpResponse(json.dumps(response), status=400)
         else:
-            form = UserCreationForm()
-        return render(request, 'registration.html', {})
+
+            try:
+                validate_email(email)
+            except Exception:
+                return HttpResponse(json.dumps(response) ,status=400)
+            try:
+              
+                user = User.objects.filter(email=email)
+                useremail = user.values()[0]["email"]
+                username = user.values()[0]["username"]
+                id = user.values()[0]["id"]
+
+              
+                if useremail is not None:
+                    token = token_activation(username, id)
+                    url = str(token)
+                    surl = get_surl(url)
+                    z = surl.split("/")
+
+                    # email is generated  where it is sent the email address entered in the form
+                    mail_subject = "Activate your account by clicking below link"
+                    mail_message = render_to_string('user/email_validation.html', {
+                        'user': username,
+                        'domain': get_current_site(request).domain,
+                        'surl': z[2]
+                    })
+
+                    recipientemail = email
+
+                    ee.emit('send_email', recipientemail, mail_message)
+
+                    response = {
+                        'success': True,
+                        'message': "check email for vaildation ",
+                        'data': []
+                    }
+                    # here email is sent to user
+                    return HttpResponse(json.dumps(response), status=201)
+            except Exception as e:
+                print(e)
+                response['message'] = "something went wrong"
+                return HttpResponse(json.dumps(response), status=400)
+
+
+
 
 def activate(request, surl):
     
@@ -90,10 +250,6 @@ def activate(request, surl):
     except KeyError:
         messages.info(request, 'was not able to sent the email')
         return redirect('registration')
-    
-    # except ExpiredSignatureError:
-    #     messages.info(request, 'activation link expired')
-    #     return redirect('registration')
     
     except Exception:
         messages.info(request, 'activation link expired')
