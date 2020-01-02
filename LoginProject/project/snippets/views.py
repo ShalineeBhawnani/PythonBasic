@@ -1,6 +1,6 @@
 # ******************************************************************************************************************
 # @purpose :will save user details after registrations.
-# @file  :PrimeQueue.py
+# @file  :view.py
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
 from django.shortcuts import render
