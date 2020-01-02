@@ -1,5 +1,4 @@
 """project URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -18,7 +17,9 @@ from django.urls import path,include,re_path
 from django.conf.urls import url
 from rest_framework_jwt.views import obtain_jwt_token
 from snippets import views
-from snippets.views import Login, Registrations
+from snippets.views import Login, Registrations, activate
+from django_short_url.views import get_surl
+from django_short_url.models import ShortURL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,5 @@ urlpatterns = [
     path('api/token/', obtain_jwt_token), 
     path('login/', views.Login.as_view(), name='login'),
     path('register/', views.Registrations.as_view(), name='registration'),
-  
+    path('activate/', views.activate(request,surl), name='activate'),
 ]
-

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'snippets',
     'rest_framework',
     'rest_framework_jwt',
+    'django_short_url',
 ]
 
 MIDDLEWARE = [
