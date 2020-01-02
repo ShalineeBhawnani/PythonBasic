@@ -3,6 +3,9 @@
 # @file  :view.py
 # @author :ShalineeBhawnani
 # *******************************************************************************************************************
+
+import datetime
+import json
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -11,12 +14,19 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
 from django.contrib import messages
 from rest_framework.views import APIView
+#from django.core.mail import EmailMultiAlternatives
+#from project.settings import EMAIL_HOST_USER, file_handler
 from rest_framework.response import Response
 from .serializers import EmailSerializer,LoginSerializer, RegistrationSerializer, UserSerializer
 from django.core.validators import validate_email
 from django_short_url.views import get_surl
 from django_short_url.models import ShortURL
 from django.http import HttpResponse, HttpResponseRedirect , response
+import logging
+# logger = logging.getLogger(__name__)
+# logger.setLevel(logging.DEBUG)
+# logger.addHandler(file_handler)
+
 
 
 def home(request):

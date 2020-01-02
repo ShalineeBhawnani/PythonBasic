@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/token/', obtain_jwt_token), 
     path('login/', views.Login.as_view(), name='login'),
     path('register/', views.Registrations.as_view(), name='registration'),
+    #path('registration/', views.Registrations.as_view(), name='registration'),
     path('Logout/',views.Logout.as_view(), name='Logout'),
     path('ForgotPassword/',views.ForgotPassword.as_view(), name='ForgotPassword'),
    # path('activate/', views.activate(request,surl), name='activate'),
