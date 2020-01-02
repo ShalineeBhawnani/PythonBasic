@@ -1,3 +1,8 @@
+# ******************************************************************************************************************
+# @purpose :will save user details after registrations.
+# @file  :PrimeQueue.py
+# @author :ShalineeBhawnani
+# *******************************************************************************************************************
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -32,7 +37,7 @@ class Login(GenericAPIView):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponse("Your account was active.")
+                return HttpResponse("Your account is active now.")
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -50,6 +55,7 @@ class Registrations(GenericAPIView):
         return render(request, 'registration.html')
         
     def post(self, request):
+
         if request.method == 'POST':
             form = UserCreationForm(request.POST)
             if form.is_valid():
