@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import datetime
 import os
+import logging
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'snippets',
     'rest_framework',
+    #'djoser',
     'rest_framework_jwt',
     'django_short_url',
-    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,16 @@ REST_FRAMEWORK = {
     ),
 }
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# EMAIL_HOST_USER = os.getenv("shalineebhawnani80@gmail.com")
+# EMAIL_HOST_PASSWORD = os.getenv("Shalinee5@5")
+# EMAIL_PORT = os.getenv('EMAIL_PORT')
+
+
 
 JWT_AUTH = {
     'JWT_ENCODE_HANDLER':
@@ -172,3 +183,7 @@ JWT_AUTH = {
     'JWT_AUTH_COOKIE': None,
 
 }
+
+AUTH_ENDPOINT = os.getenv('AUTH_ENDPOINT')
+AUTH_ENDPOINT = "http://127.0.0.1:8000/api-token-auth/"
+    # path('api-token-auth/', obtain_jwt_token), 
