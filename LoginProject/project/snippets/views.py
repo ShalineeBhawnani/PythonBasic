@@ -132,7 +132,7 @@ class Registrations(GenericAPIView):
                     z = surl.split("/")
 
                     mail_subject = "Activate your account by clicking below link"
-                    mail_message = render_to_string('user/email_validation.html', {
+                    mail_message = render_to_string('template/email_validation.html', {
                         'user': user_created.username,
                         'domain': get_current_site(request).domain,
                         'surl': z[2]
