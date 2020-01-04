@@ -3,33 +3,25 @@
 <html>
     <head>
         <title>login page</title>
-        <link rel = "stylesheet" type="text/css" href="{% static 'styles/style.css' %}"/>
+        <link rel = "stylesheet" type="text/css" href="{% static 'styles/login.css' %}"/>
     </head>
     
-    <body>
-        <h1>Login Page</h1>
-         <form action="" name="loginform" method="POST" onsubmit="return validate();">
-            {% csrf_token %}
-            <div>Username:</div> 
-            <input id="user" type= "text" name = "username">
-            <br>
-            <div>Password:</div>
-            <input id="pass" type = "password" name = "password">
-            <br><br>
-            
-            <button onclick="myFunction()" id="button" >Submit</button>
-            
-        </form>
-    </body>
-
+    <div class="login">
+    <h1>Login</h1>
+    <form action="" name="loginform" method="POST" onsubmit="return validate();">
+      {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+        <a href="/register">Register</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/forgotpassword">Forgot Password?</a>
+       
+    </form>
+</div>
         <script>
         function myFunction(){
             location.replace("/home/bridgelabz/Videos/PythonBasic/LoginProject/project/template/login.html")
         }
         </script> 
-
-    <a href="/registration">Register!</a><br>    
-    <a href="/forgotpassword">Forgot password?</a>
      <script>
             function validate(){
                 var username = document.forms["loginform"]["user"].value;

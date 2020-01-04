@@ -1,3 +1,12 @@
+"""
+ ******************************************************************************
+ *  Purpose: Social login app is created where user can login using different
+ *           service provider
+ *  @file  :view.py
+ *  @author :ShalineeBhawnani
+ ******************************************************************************
+"""
+
 import datetime
 import json
 import django
@@ -36,6 +45,10 @@ from django_short_url.models import ShortURL
 from django.http import HttpResponse, HttpResponseRedirect , response
 from jwt import ExpiredSignatureError
 from project.settings import SECRET_KEY
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
 
 def home(request):
    
@@ -64,6 +77,21 @@ class Login(GenericAPIView):
             return HttpResponse("Invalid login details given")
 
 
+class Logout(GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def get(self, request):
+        
+        smd = {"success": False, "message": "not a vaild user", "data": []}
+        try:
+            user = request.user
+            red.delete(user.username)
+            smd = {"success": True, "message": " logged out", "data": []}
+            logger.info("%s looged out succesfully ", user)
+            return HttpResponse(json.dumps(smd), status=200)
+        except Exception:
+            logger.error("something went wrong while logging out")
+            return HttpResponse(json.dumps(smd), status=400)
 
 class Registrations(GenericAPIView):
 
@@ -156,6 +184,63 @@ class Registrations(GenericAPIView):
             smd["message"] = "last return"
             return HttpResponse(json.dumps(smd), status=400)
 
+class ForgotPassword(GenericAPIView):
+    serializer_class = EmailSerializer
+    def post(self, request):
+        global response
+        email = request.data["email"]
+        response = {
+            'success': False,
+            'message': "not a vaild email ",
+            'data': []
+        }
+      
+        if email == "":
+            response['message'] = 'email field is empty please provide vaild input'
+            return HttpResponse(json.dumps(response), status=400)
+        else:
+
+            try:
+                validate_email(email)
+            except Exception:
+                return HttpResponse(json.dumps(response) ,status=400)
+            try:
+                user = User.objects.filter(email=email)
+                useremail = user.values()[0]["email"]
+                username = user.values()[0]["username"]
+                #id = user.values()[0]["id"]
+
+                #  here user is not none then token is generated
+                if useremail is not None:
+                    token = token_activation(username, id)
+                    url = str(token)
+                    surl = get_surl(url)
+                    z = surl.split("/")
+
+                    # email is generated  where it is sent the email address entered in the form
+                    mail_subject = "Activate your account by clicking below link"
+                    mail_message = render_to_string('template/email_validation.html', {
+                        'user': username,
+                        #'domain': get_current_site(request).domain,
+                        'surl': z[2]
+                    })
+
+                    recipientemail = email
+
+                    ee.emit('send_email', recipientemail, mail_message)
+
+                    response = {
+                        'success': True,
+                        'message': "check email for vaildation ",
+                        'data': []
+                    }
+                    # here email is sent to user
+                    return HttpResponse(json.dumps(response), status=201)
+            except Exception as e:
+                print(e)
+                response['message'] = "something went wrong"
+                return HttpResponse(json.dumps(response), status=400)
+
 def activate(request, surl):
     print("Activate url is ", surl)   
     try:
@@ -173,24 +258,7 @@ def activate(request, surl):
             messages.info(request, 'was not able to sent the email')          
             return redirect('registration')
     
-
-
     except KeyError:
         messages.info(request, 'was not able to sent the email')
         return redirect('registration')
      
-
-# def activate(request, uidb64, token):
-#     try:
-#         uid = force_text(urlsafe_base64_decode(uidb64)).decode()
-#         user = User.objects.get(pk=uid)
-#     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-#         user = None
-#     if user is not None and account_activation_token.check_token(user, token):
-#         user.is_active = True
-#         user.save()
-#         login(request, user)
-#         # return redirect('home')
-#         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
-#     else:
-#         return HttpResponse('Activation link is invalid!')
