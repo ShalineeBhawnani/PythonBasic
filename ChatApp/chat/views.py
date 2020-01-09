@@ -1,3 +1,9 @@
+# ******************************************************************************************************************
+# @purpose :Creating ChatApp.
+# @file  :view.py
+# @author :ShalineeBhawnani
+# *******************************************************************************************************************
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http.response import JsonResponse, HttpResponse
