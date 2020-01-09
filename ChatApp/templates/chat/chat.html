@@ -14,7 +14,14 @@
         <div class="col s3">
         <div class="card">
             <div id="users" class="collection">
-                
+                  {% for user in users %}
+                <a href="{% url 'chat' request.user.id user.id %}" id="user{{ user.id }}" class="collection-item row">
+                    <img src="https://frontend-1.adjust.com/new-assets/images/site-images/interface/user.svg" class="col s4">
+                    <div class="col s8">
+                    <span class="title" style="font-weight: bolder">{{ user.username }}</span>
+                    </div>
+                </a>
+                {% endfor %}
             </div>
         </div>
         </div>
@@ -64,6 +71,7 @@
                         list += userItem
                     })
                     $('#users').html(list)
+                    debugger;
                 });
             }, 1000)
         })        
