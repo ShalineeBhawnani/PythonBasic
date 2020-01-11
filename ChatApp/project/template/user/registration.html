@@ -1,0 +1,47 @@
+ 
+{% extends 'user/index.html' %}
+{% block form %}
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel = "stylesheet" type = "text/css" href="{% static 'styles/regis.css' %}"/>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <h2>Fill your details below to Register</h2>
+        <form action="" id="register-form" class="form-group" method="POST">
+            {% csrf_token %}
+            
+                <input type="text" name="name" placeholder="name" required> <br><br>
+                <input type="text" name="username" id="id_username" placeholder="username" class="validate" required> <br><br>
+                <input type="text" name="email" id="id_email" placeholder="Email address" class="validate" required> <br><br>
+                <input type="password" name="password" id="id_password" placeholder="Password" required> <br><br>
+                <input type="password" name="password2" id="id_password" placeholder="Password2" required> <br><br>                
+                <button onclick="location.href = '/home/user/Desktop/GitFolder/Fellowship/project/project/template/user/index.html';" id="button" >Submit</button>
+                
+        </form>
+    </body>
+    {% comment %} <script>
+    $(function () {
+        $('#register-form').on('submit', function (event) {
+            event.preventDefault();
+            var username = $('#id_username').val();
+            if(username !== '')
+            {
+                var password = $('#id_password').val();
+                if(password !== '' && password === $('#id_password2').val()){
+                    registration(username, password);
+                }
+                else{s
+                    alert("The passwords doesn't match!");
+                }
+            }
+            else
+                alert("Please enter a valid username!");
+        })
+    })
+    </script> {% endcomment %}
+    {% endblock form %}
+
