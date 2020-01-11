@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>login page</title>
+        <link rel = "stylesheet" type="text/css" href="{% static 'styles/login.css' %}"/>
+    </head>
+    
+    <div class="login">
+    <h1>Login</h1>
+    <form action="" name="loginform" method="POST" onsubmit="return validate();">
+      {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+        <a href="/registration">Register</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/forgotpassword">Forgot Password?</a>
+       
+    </form>
+</div>
+        <script>
+        function myFunction(){
+            location.replace("/home/bridgelabz/Videos/PythonBasic/LoginProject/project/template/login.html")
+        }
+        </script> 
+     <script>
+            function validate(){
+                var username = document.forms["loginform"]["user"].value;
+                var password = document.forms["loginform"]["password"].value;
+                {% comment %} var passwordExpression = /[A-Z]{1}[a-zA-Z0-9]+[@#$_]+/; {% endcomment %}
+                if (username=="" || password==""){
+                    alert("Username/password cannot be empty")
+                    return false;
+                }
+            
+        </script>
+</html>
