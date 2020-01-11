@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>login page</title>
+        <link rel = "stylesheet" type="text/css" href="{% static 'styles/style.css' %}"/>
+    </head>
+    
+    <body>
+        <h1>Login Page</h1>
+         <form action="" name="loginform" method="POST" onsubmit="return validate();">
+            {% csrf_token %}
+            <div>Username:</div> 
+            <input id="user" type= "text" name = "username">
+            <br>
+            <div>Password:</div>
+            <input id="pass" type = "text" name = "password">
+            <br><br>
+            
+            <button onclick="myFunction()" id="button" >Submit</button>
+            
+        </form>
+    </body>
+
+        <script>
+        function myFunction(){
+            location.replace("https://www.youtube.com/watch?v=zrXOjWICmGw")
+        }
+        </script> 
+
+    <a href="/registration">Register!</a><br>    
+    <a href="#">Forgot password?</a>
+     <script>
+            function validate(){
+                var username = document.forms["loginform"]["user"].value;
+                var password = document.forms["loginform"]["pswd"].value;
+                var passwordExpression = /[A-Z]{1}[a-zA-Z0-9]+[@#$_]+/;
+                if (username=="" || password==""){
+                    alert("Username/password cannot be empty")
+                    return false;
+                }
+            
+        </script>
+</html>
