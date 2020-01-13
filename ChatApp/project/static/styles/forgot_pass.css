@@ -1,0 +1,8 @@
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg");
+    /* background-color: rgb(110, 115, 117); */
+    text-align: center;
+    position: sticky;
+    padding-top: 200px;
+    font-style: oblique
+}

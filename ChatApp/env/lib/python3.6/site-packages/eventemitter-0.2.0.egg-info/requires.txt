@@ -1,0 +1,9 @@
+
+[testing]
+pep257
+pep8
+pyenchant
+pyflakes
+pylint
+pytest
+pytest-cov

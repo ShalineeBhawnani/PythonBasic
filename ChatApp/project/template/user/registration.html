@@ -1,0 +1,32 @@
+ 
+{% comment %} {% extends 'user/index.html' %} {% endcomment %}
+{% block form %}
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <div class="register">
+        <h1>Register</h1>
+        <link rel = "stylesheet" type = "text/css" href="{% static 'styles/regis.css' %}"/>
+    </div>
+    </head>
+    <body>
+        {% comment %} <h1>Register</h1> {% endcomment %}
+        <h2>Fill your details below to Register</h2>
+        <form action=""  method="POST">
+            {% csrf_token %}
+            
+                <input type="text" name="name" placeholder="name" required> <br>
+                <input type="text" name="username" placeholder="username" required> <br>
+                <input type="text" name="email" placeholder="Email address" required> <br>
+                <input type="password" name="password1" placeholder="Password1" required> <br>
+                <input type="password" name="password2" placeholder="Password2" required> <br>               
+                <button class="btn btn-primary btn-block btn-large" onclick="location.href = '/home/bridgelabz/Videos/PythonBasic/LoginProject/project/template/login.html';" id="button" >Submit</button>
+                
+        </form>
+    </body>
+
+    
+    {% endblock form %}
+
+</html>
