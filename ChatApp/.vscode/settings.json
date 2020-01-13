@@ -1,4 +1,3 @@
 {
-    "python.pythonPath": "env/bin/python",
-    "git.ignoreLimitWarning": true
+    "python.pythonPath": "chat-env/bin/python"
 }
