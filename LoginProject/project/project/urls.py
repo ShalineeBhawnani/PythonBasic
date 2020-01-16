@@ -21,6 +21,7 @@ from snippets import views
 from snippets.views import Login,Logout, Registrations,ForgotPassword, activate
 from django_short_url.views import get_surl
 from django_short_url.models import ShortURL
+from . import views
 
 
 urlpatterns = [
