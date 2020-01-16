@@ -3,8 +3,6 @@
 # @file  :view.py
 # @author :ShalineeBhawnani
 #*******************************************************************************************************************
-
-
 from django.shortcuts import render
 
 def index(request):
